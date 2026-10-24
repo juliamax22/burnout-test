@@ -102,6 +102,8 @@ h1, .q-text { font-weight: 800; letter-spacing: -.02em; }
 .me { display: flex; gap: 12px; align-items: flex-start; }
 .me .ava { width: 44px; height: 44px; border-radius: 50%; background: var(--terra); flex: none; display: grid; place-items: center; color: var(--milk); font: 800 18px Inter; }
 .foot { font-size: 11px; line-height: 1.5; opacity: .6; margin-top: 22px; }
+.foot.copy { margin-top: 10px; }
+.foot.copy a { color: inherit; }
 .mood { border: 2px solid var(--terra); }
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s, transform .6s cubic-bezier(.2,.8,.2,1); }
 .reveal.in { opacity: 1; transform: none; }
@@ -201,7 +203,7 @@ function build() {
     <h1 style="font-size:31px;line-height:1.12;margin-top:6px">Вы просто устали или это <span class="hl">выгорание?</span></h1>
     <p class="lead">Этот тест я не придумывала сама и не просила нейросеть сочинить вопросы. Это настоящий научный опросник BAT: его сделали психологи из Бельгии и Нидерландов. Я его перевела и упаковала так, чтобы было удобно пройти с телефона.</p>
     <p class="lead" style="margin-top:8px"><b>15 вопросов, 2-3 минуты.</b> Ответы никуда не отправляются и остаются только у вас в телефоне.</p>
-    <div style="margin-top:auto;padding-top:20px"><button class="btn go">Начать</button><p class="small" style="text-align:center;margin-top:10px">Это самопроверка, а не диагноз</p></div>
+    <div style="margin-top:auto;padding-top:20px"><button class="btn go">Начать</button><p class="small" style="text-align:center;margin-top:10px">Это самопроверка, а не диагноз</p><p class="small" style="text-align:center;margin-top:4px;opacity:.55">© 2026 Юлия Максимова, @yu.mova.ai</p></div>
   </div>`);
   BAT.forEach(([side, t], i) => v.push(`<div class="view q" data-q="${i}">${topBar(i + 1)}
     <div class="win" style="margin-top:20px"><div class="win-h"><b></b><b></b><b></b><span>${side}</span></div><div class="win-b"><div class="q-hint">Как часто это про вас?</div><div class="q-text">${t}</div></div></div>
@@ -289,7 +291,8 @@ function result() {
     <div style="display:flex;flex-direction:column;gap:9px;margin-top:18px">
       <button class="btn save">Сохранить результат для сторис</button>
       <button class="btn ghost again">Пройти ещё раз</button></div>
-    <p class="foot">Это самопроверка, а не диагноз. В тесте использованы опросники Burnout Assessment Tool (BAT-12) - Schaufeli, De Witte, Desart (KU Leuven), Hadžibajramović и др., 2022 - и PHQ-2 (Kroenke и др., 2003). Перевод на русский наш. Пороги BAT предварительные и получены на работниках Нидерландов, Бельгии и Финляндии. Ответы никуда не отправляются.</p>`;
+    <p class="foot">Это самопроверка, а не диагноз. В тесте использованы опросники Burnout Assessment Tool (BAT-12) - Schaufeli, De Witte, Desart (KU Leuven), Hadžibajramović и др., 2022 - и PHQ-2 (Kroenke и др., 2003). Перевод на русский наш. Пороги BAT предварительные и получены на работниках Нидерландов, Бельгии и Финляндии. Ответы никуда не отправляются.</p>
+    <p class="foot copy">© 2026 Юлия Максимова · дизайн, иллюстрации и тексты · Instagram @yu.mova.ai · <a href="${TG}" target="_blank" rel="noopener">мой Telegram</a></p>`;
   app.classList.add('on-result');
   app.appendChild(el);
   typo(el);
